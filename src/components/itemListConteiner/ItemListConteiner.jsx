@@ -5,13 +5,21 @@ import {useParams} from "react-router-dom";
 const ItemListConteiner = ({saludo}) => {
   const [products, setProducts] = useState([]);
 
+  
+  const {idCategory} = useParams()
+  
+  console.log(idCategory);
+  
   useEffect(() => {
-    setProducts(data);
-  }, []);
 
-  const params = useParams()
-
-  console.log(params);
+    if (idCategory) {
+      //Filtrar los productos
+      const newProducts = data.filter((producto) => producto.Category === idCategory)
+      setProducts(newProducts);
+    } else {
+      setProducts(data);
+    }
+  }, [idCategory]);
 
   return (
     <div className=''>
