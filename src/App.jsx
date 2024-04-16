@@ -9,12 +9,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar /> 
         
-        <ItemListConteiner />
-
-
         <Routes>
-          
-
+          <Route path='/' element={<ItemListConteiner saludo="Nuestros productos" />} />
+          <Route path='/Category/:idCategory' element={<ItemListConteiner saludo="Nuestros productos" />}/>
         </Routes>
 
       </BrowserRouter>
@@ -23,3 +20,4 @@ const App = () => {
 };
 
 export default App;
+

@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import data from "../../bbdd/zotta.json";
+import {useParams} from "react-router-dom";
 
-const ItemListConteiner = () => {
+const ItemListConteiner = ({saludo}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(data);
   }, []);
 
+  const params = useParams()
+
+  console.log(params);
+
   return (
     <div className=''>
-      <h1>Lista de Productos</h1>
+      <h1>{saludo}</h1>
       <div className="container-fluid row">
         {products.map((product) => (
-          <div className="col-md-4 mb-4">
+
+          <div key={product.id_product} className="col-md-4 mb-4">
             <div className="card" style={{ width: '18rem' }}>
               <img src={product.Image} className="card-img-top" alt={product.Title} />
               <div className="card-body d-flex flex-column justify-content-between">
@@ -22,6 +28,7 @@ const ItemListConteiner = () => {
               </div>
             </div>
           </div>
+
         ))}
       </div>
     </div>
