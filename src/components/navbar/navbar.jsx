@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="navbar fixed-top navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand text-white-50" href="#">Lubricentro Zotta 
-          <img src="src\img\herramienta-de-reparacion.png" alt="icon_title" className='ms-2'/>
+          <i class="fa-solid fa-gear"></i>
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon icon-burger text-white-50"></span>
