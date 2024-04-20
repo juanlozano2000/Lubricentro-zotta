@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #2B2B2B;
+}
+
+.navbar-nav a{
+    color: white;
+}
+
+/* Cuando ancho igual o menor a 991px mostra esto: */
+@media (max-width: 991px) {
+    .navbar-nav a{
+        padding: 1rem 0;
+    }
+    .navbar-nav a:active{
+        background-color: blue;
+    }
+}
+
+
+/* Cuando ancho igual o mayor a 992px mostra esto: */
+@media (min-width: 992px) {
+    .navbar-nav {
+        display: flex;
+        justify-content: center;
+    }
+    .navbar-nav a {
+      width: 10rem;
+      text-align: center;
+    }
+}
+
+/* Cuando ancho igual o mayor a 1500px mostra esto: */
+@media (min-width: 1500px) {
+    
+}
