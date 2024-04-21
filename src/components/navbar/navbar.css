@@ -6,13 +6,23 @@
     color: white;
 }
 
+/* Icons */
+.material-symbols-outlined{
+    color: white;
+    padding: 0.2rem;
+}
+.material-symbols-outlined{
+    font-size: 85%;
+    margin-left: 0.5rem;
+}
+
 /* Cuando ancho igual o menor a 991px mostra esto: */
 @media (max-width: 991px) {
     .navbar-nav a{
         padding: 1rem 0;
     }
     .navbar-nav a:active{
-        background-color: blue;
+        background-color: rgb(128, 128, 134);
     }
 }
 

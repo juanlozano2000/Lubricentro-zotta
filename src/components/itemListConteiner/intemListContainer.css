@@ -1,0 +1,32 @@
+.products_container{
+    /* border: 2px solid red; */
+    padding-top: 10%;
+}
+
+.card_father {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_addToCart{
+    background-color: #002B6F;
+    color: white;
+}
+
+/* Cuando ancho igual o menor a 991px mostra esto: */
+@media (max-width: 991px) {
+    .products_container{
+        padding-top: 30%;
+    }
+}
+
+
+/* Cuando ancho igual o mayor a 992px mostra esto: */
+@media (min-width: 992px) {
+    
+}
+
+/* Cuando ancho igual o mayor a 1500px mostra esto: */
+@media (min-width: 1500px) {
+    
+}

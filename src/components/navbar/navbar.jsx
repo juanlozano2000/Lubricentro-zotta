@@ -5,16 +5,15 @@ import './navbar.css';
 const Navbar = () => {
 
 
-
   return (
     <>
     <nav className="navbar fixed-top navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand text-white-50" href="#">Lubricentro Zotta 
-          <i class="fa-solid fa-gear"></i>
+          <span class="material-symbols-outlined">build_circle</span>
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon icon-burger text-white-50"></span>
+          <span class="material-symbols-outlined">menu_open</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className={`navbar-nav w-100`}>
