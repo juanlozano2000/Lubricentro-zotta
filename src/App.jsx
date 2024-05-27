@@ -1,19 +1,28 @@
 import React from 'react';
 import Navbar from "./components/navbar/navbar.jsx";
 import ItemListConteiner from "./components/itemListConteiner/ItemListConteiner.jsx";
+import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from './context/CartContext.jsx';
+import CartWidget from './components/CartWidget/CartWidget.jsx';
+import CartContainer from "./components/CartConteiner/CartConteiner.jsx"; // Asegúrate de que el path está bien importado
+
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar /> 
-        
-        <Routes>
-          <Route path='/' element={<ItemListConteiner saludo="Nuestros productos" />} />
-          <Route path='/Category/:idCategory' element={<ItemListConteiner saludo="Nuestros productos" />}/>
-        </Routes>
-
+        <CartProvider>
+          <Navbar /> 
+          <CartWidget />
+          <Routes>
+            <Route path='/' element={<ItemListConteiner saludo="Nuestros productos" />} />
+            <Route path='/Category/:idCategory' element={<ItemListConteiner saludo="Nuestros productos" />}/>
+            <Route path="/" element={<ItemListConteiner />} />
+            <Route path="/ItemDetailContainer/:id_product" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<CartContainer />} />  // Nueva ruta para el CartContainer
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

@@ -15,6 +15,10 @@
     font-size: 85%;
     margin-left: 0.5rem;
 }
+.bi-cart-check-fill{
+    color: white;
+    font-size: 120%;
+}
 
 /* Cuando ancho igual o menor a 991px mostra esto: */
 @media (max-width: 991px) {

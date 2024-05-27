@@ -1,0 +1,4 @@
+.card > .img_detail {
+    width: 200px;      /* Ancho fijo de 200px */
+    height: 150px;     /* Alto fijo de 150px */
+}
