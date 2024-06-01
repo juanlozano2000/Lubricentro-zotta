@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link to="/Category/Refrigeracion" className="nav-link">Refrigeración</Link>
             </ul>
           </div>
-          <i className="bi bi-cart-check-fill" onClick={goToCart} style={{ cursor: 'pointer' }}></i>  // Asegúrate de que el icono es clickeable
+          <i className="bi bi-cart-check-fill" onClick={goToCart} style={{ cursor: 'pointer' }}></i>
         </div>
       </nav>
     </>

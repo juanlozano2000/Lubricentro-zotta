@@ -1,0 +1,19 @@
+.items-container {
+    height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+.items-container > div {
+    height: 100px;
+}
+
+.items-container > div > p {
+    margin: 0;
+}
+
+.items-container > div > img {
+    width: 150px;
+    height: 80px;
+    object-fit: contain;  
+}
