@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from './context/CartContext.jsx';
 import CartWidget from './components/CartWidget/CartWidget.jsx';
 import CartContainer from "./components/CartConteiner/CartConteiner.jsx"; // Asegúrate de que el path está bien importado
+import { Checkout } from './components/Checkout/Checkout.jsx';
+import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
 
 
 const App = () => {
@@ -20,7 +22,9 @@ const App = () => {
             <Route path='/Category/:idCategory' element={<ItemListConteiner saludo="Nuestros productos" />}/>
             <Route path="/" element={<ItemListConteiner />} />
             <Route path="/ItemDetailContainer/:id_product" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<CartContainer />} />  // Nueva ruta para el CartContainer
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/purchase-summary" element={<PurchaseSummary />} />
           </Routes>
         </CartProvider>
       </BrowserRouter>
