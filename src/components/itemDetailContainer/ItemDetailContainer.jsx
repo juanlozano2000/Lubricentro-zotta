@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import data from "../../bbdd/zotta.json";
+import data from "../../db/zotta.json";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import "./itemDetailContainer.css";
 

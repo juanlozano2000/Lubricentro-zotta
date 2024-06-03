@@ -1,4 +1,6 @@
 node_modules/
+src/db/key_service_account.json
+src/db/upload_zotta.cjs
 
 
 # Logs

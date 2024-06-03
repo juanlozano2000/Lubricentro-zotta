@@ -11,7 +11,7 @@ const CartContainer = () => {
     const handleButtonClick = () => {
         if (cartItems.length > 0) {
             // Procesa la compra
-            console.log("Procediendo a comprar...");
+            navigate('/checkout');
         } else {
             navigate('/');  // Redirige a la página de inicio
         }
@@ -24,12 +24,12 @@ const CartContainer = () => {
     return (
         <div className="container mt-5">
             <h2 className='p-4'>Mi Carrito</h2>
-            <div className="items-container border border-danger">
+            <div className="items-container ">
                 {cartItems.length > 0 ? (
                     cartItems.map((item, index) => (
-                        <div key={index} className='border border-danger d-flex align-items-center'>
+                        <div key={index} className=' border d-flex align-items-center'>
                             <img src={item.Image} className="img_detail" alt={item.Title} />
-                            <p className='border border-danger'>{item.quantity} {item.Title} - ${item.precio}</p>
+                            <p className=''>{item.quantity} {item.Title} - ${item.precio}</p>
                         </div>
                     ))
                 ) : (

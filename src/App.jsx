@@ -1,14 +1,27 @@
 import React from 'react';
 import Navbar from "./components/navbar/navbar.jsx";
-import ItemListConteiner from "./components/itemListConteiner/ItemListConteiner.jsx";
+import ItemListContainer from "./components/itemListConteiner/ItemListConteiner.jsx";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { CartProvider } from './context/CartContext.jsx';
 import CartWidget from './components/CartWidget/CartWidget.jsx';
-import CartContainer from "./components/CartConteiner/CartConteiner.jsx"; // Asegúrate de que el path está bien importado
-
+import CartContainer from "./components/CartConteiner/CartConteiner.jsx";
+import { Checkout } from './components/Checkout/Checkout.jsx';
+import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
 
 const App = () => {
+  return (
+    <BrowserRouter>
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
+    </BrowserRouter>
+  );
+};
+
+const AppContent = () => {
+  const location = useLocation();
+
   return (
     <div>
       <BrowserRouter>
@@ -29,4 +42,3 @@ const App = () => {
 };
 
 export default App;
-
