@@ -8,6 +8,7 @@ import CartWidget from './components/CartWidget/CartWidget.jsx';
 import CartContainer from "./components/CartContainer/CartContainer.jsx";
 import { Checkout } from './components/Checkout/Checkout.jsx';
 import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
+import NotFoundPage from './components/404/NotFoundPage.jsx';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const AppContent = () => {
         <Route path="/cart" element={<CartContainer />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/purchase-summary" element={<PurchaseSummary />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

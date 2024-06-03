@@ -13,6 +13,17 @@
     color: white;
 }
 
+.loader {
+    font-size: 4rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+
 /* Cuando ancho igual o menor a 991px mostra esto: */
 @media (max-width: 991px) {
     .products_container{
