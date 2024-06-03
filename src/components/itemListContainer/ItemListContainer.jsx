@@ -3,7 +3,7 @@ import data from "../../db/zotta.json";
 import { useParams, Link } from "react-router-dom";
 import "./intemListContainer.css";
 
-const ItemListConteiner = () => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { idCategory } = useParams();
 
@@ -35,4 +35,4 @@ const ItemListConteiner = () => {
   );
 }
 
-export default ItemListConteiner;
+export default ItemListContainer;

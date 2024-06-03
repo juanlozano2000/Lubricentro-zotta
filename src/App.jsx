@@ -1,19 +1,14 @@
 import React from 'react';
 import Navbar from "./components/navbar/navbar.jsx";
-import ItemListContainer from "./components/itemListConteiner/ItemListConteiner.jsx";
+import ItemListContainer from "./components/itemListContainer/ItemListContainer.jsx";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { CartProvider } from './context/CartContext.jsx';
 import CartWidget from './components/CartWidget/CartWidget.jsx';
-import CartContainer from "./components/CartConteiner/CartConteiner.jsx";
+import CartContainer from "./components/CartContainer/CartContainer.jsx";
 import { Checkout } from './components/Checkout/Checkout.jsx';
 import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
-import CartContainer from "./components/CartConteiner/CartConteiner.jsx";
-import { Checkout } from './components/Checkout/Checkout.jsx';
-import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
-import { Checkout } from './components/Checkout/Checkout.jsx';
-import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
-
+import ItemDetail from './components/ItemDetail/ItemDetail.jsx';
 
 const App = () => {
   return (
@@ -30,21 +25,17 @@ const AppContent = () => {
 
   return (
     <div>
-      <BrowserRouter>
-        <CartProvider>
-          <Navbar /> 
-          <CartWidget />
-          <Routes>
-            <Route path='/' element={<ItemListConteiner saludo="Nuestros productos" />} />
-            <Route path='/Category/:idCategory' element={<ItemListConteiner saludo="Nuestros productos" />}/>
-            <Route path="/" element={<ItemListConteiner />} />
-            <Route path="/ItemDetailContainer/:id_product" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<CartContainer />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/purchase-summary" element={<PurchaseSummary />} />
-          </Routes>
-        </CartProvider>
-      </BrowserRouter>
+      <Navbar /> 
+      <CartWidget />
+      <Routes>
+        <Route path='/' element={<ItemListContainer saludo="Nuestros productos" />} />
+        <Route path='/Category/:idCategory' element={<ItemListContainer saludo="Nuestros productos" />}/>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/ItemDetailContainer/:id_product" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<CartContainer />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/purchase-summary" element={<PurchaseSummary />} />
+      </Routes>
     </div>
   );
 };
