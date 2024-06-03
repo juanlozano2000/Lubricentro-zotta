@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../context/CartContext.jsx';  // Importa tu contexto donde defines useCart y clearCart
+import { useCart } from '../../context/CartContext.jsx';  // Verifica que esta importación sea correcta
+import { collection, addDoc } from "firebase/firestore";
+import db from "../../db/db.js";  // Verifica que esta importación sea correcta
 import "./checkout.css";
 
 export const Checkout = () => {
@@ -11,19 +13,40 @@ export const Checkout = () => {
     zip: ""
   });
 
-  const { cartItems, clearCart } = useCart();  // Suponiendo que estas funciones están en useCart
+  const { cartItems, clearCart } = useCart();
   const navigate = useNavigate();
   const calculateTotal = () => cartItems.reduce((acc, item) => acc + item.precio * item.quantity, 0);
 
   const handleChangeInput = (event) => {
-    setDataForm({...dataForm, [event.target.name]: event.target.value})
+    setDataForm({...dataForm, [event.target.name]: event.target.value});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(dataForm)
-    navigate('/purchase-summary', { state: { userData: dataForm, cartItems, total: calculateTotal() } });
-    clearCart();
+
+    const order = {
+      user: {...dataForm},
+      products: cartItems,  // Esto debe ser un array, no un objeto
+      total: calculateTotal()
+    };
+
+    try {
+      const orderRef = collection(db, "orders");
+      const response = await addDoc(orderRef, order);
+      console.log("Order ID:", response.id);  // Log the order ID
+      uploadOrder();
+      /* clearCart(); */
+      navigate('/purchase-summary', { state: { userData: dataForm, cartItems, total: calculateTotal()} });  // Ensure data is passed if needed
+    } catch (error) {
+      console.error("Error uploading order:", error);
+    }
+  };
+
+  const uploadOrder = async (order) => {
+    const orderRef = collection(db, "orders");
+    const response = await addDoc(orderRef, order);
+    console.log(response.id); // Correctamente cambiado a console.log
+    return response.id;  // Retorna el ID de la orden para otros usos
   };
 
   return (
