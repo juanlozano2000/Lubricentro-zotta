@@ -8,6 +8,11 @@ import CartWidget from './components/CartWidget/CartWidget.jsx';
 import CartContainer from "./components/CartConteiner/CartConteiner.jsx";
 import { Checkout } from './components/Checkout/Checkout.jsx';
 import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
+import CartContainer from "./components/CartConteiner/CartConteiner.jsx";
+import { Checkout } from './components/Checkout/Checkout.jsx';
+import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
+import { Checkout } from './components/Checkout/Checkout.jsx';
+import PurchaseSummary from './components/PurchaseSummary/PurchaseSummary.jsx';
 
 
 const App = () => {
