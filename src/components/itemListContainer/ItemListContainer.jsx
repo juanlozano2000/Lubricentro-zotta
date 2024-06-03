@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import data from "../../db/zotta.json";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../db/db.js";
 import { useParams, Link } from "react-router-dom";
 import "./intemListContainer.css";
 
@@ -7,11 +8,17 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { idCategory } = useParams();
 
+  const getProducts = async () => {
+    const querySnapshot = await getDocs(collection(db, "productsZotta"));
+    const productsList = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    setProducts(productsList);
+  };
+
   useEffect(() => {
-    const newProducts = idCategory
-      ? data.filter((producto) => producto.Category === idCategory)
-      : data;
-    setProducts(newProducts);
+    getProducts();
   }, [idCategory]);
 
   return (
