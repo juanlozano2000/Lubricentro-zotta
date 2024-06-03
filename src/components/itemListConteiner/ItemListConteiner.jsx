@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import data from "../../bbdd/zotta.json";
+import data from "../../db/zotta.json";
 import { useParams, Link } from "react-router-dom";
 import "./intemListContainer.css";
 
@@ -15,7 +15,7 @@ const ItemListConteiner = () => {
   }, [idCategory]);
 
   return (
-    <div className='border border-danger d-flex justify-content-center'>
+    <div className='d-flex justify-content-center'>
       <div className="container-fluid row products_container">
         {products.map((product) => (
           <div key={product.id_product} className="col-md-4 mb-4 card_father">
