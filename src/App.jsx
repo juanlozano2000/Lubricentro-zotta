@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import Navbar from "./components/navbar/navbar.jsx";
 import ItemListContainer from "./components/itemListContainer/ItemListContainer.jsx";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer.jsx";
@@ -29,8 +30,7 @@ const AppContent = () => {
       <CartWidget />
       <Routes>
         <Route path='/' element={<ItemListContainer saludo="Nuestros productos" />} />
-        <Route path='/Category/:idCategory' element={<ItemListContainer saludo="Nuestros productos" />}/>
-        <Route path="/" element={<ItemListContainer />} />
+        <Route path='/Category/:idCategory' element={<ItemListContainer saludo="Explora la categoría" />}/>
         <Route path="/ItemDetailContainer/:id_product" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<CartContainer />} />
         <Route path="/checkout" element={<Checkout />} />

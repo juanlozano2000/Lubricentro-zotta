@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../db/db.js";
 import { useParams, Link, Navigate } from "react-router-dom";
 import "./itemListContainer.css";
 
 const ItemListImgContainer = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para controlar la carga
+  const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(false);
   const { idCategory } = useParams();
 
-  // Añade esta función dentro de tu componente
-  const productExists = (id, products) => {
-    return products.some(product => product.id_product === id);
-  };
-
   const getProducts = async () => {
-    setLoading(true); // Inicia la carga
-    const querySnapshot = await getDocs(collection(db, "productsZotta"));
+    setLoading(true);
+    const productsRef = collection(db, "productsZotta");
+    const q = idCategory ? query(productsRef, where("Category", "==", idCategory)) : productsRef;
+    const querySnapshot = await getDocs(q);
     const productsList = querySnapshot.docs.map(doc => ({
-      id: doc.id,
+      id_product: doc.id,
       ...doc.data()
     }));
     setProducts(productsList);
-    setLoading(false); // Finaliza la carga
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -31,8 +28,8 @@ const ItemListImgContainer = () => {
   }, [idCategory]);
 
   useEffect(() => {
-    if (!loading && idCategory && !productExists(idCategory, products)) {
-      setRedirect(true);
+    if (!loading && idCategory && products.length === 0) {
+      setRedirect(true); // No products found for this category
     }
   }, [loading, idCategory, products]);
 
@@ -41,7 +38,7 @@ const ItemListImgContainer = () => {
   }
 
   if (loading) {
-    return <div className='loader'>Cargando...</div>; // Muestra esto mientras loading es true
+    return <div className='loader'>Cargando...</div>;
   }
 
   return (
